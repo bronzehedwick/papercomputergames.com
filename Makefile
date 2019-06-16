@@ -13,7 +13,7 @@ clean: ## Remove build directory.
 	@if [ -d public ]; then rm -rf ${BUILD}; fi && mkdir ${BUILD}
 
 web: ## Push the site to the server.
-	@git push origin master && git push deploy master
+	@rsync -a -e ssh --delete --omit-dir-times --no-perms public/ waitstaff_deploy:/usr/local/www/papercomputergames.com
 
 serve: ## Start simple python webserver in the background.
 	@python -m SimpleHTTPServer > /dev/null 2>&1 &
