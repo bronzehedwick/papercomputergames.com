@@ -1,0 +1,113 @@
+<svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 460">
+    <!--Hand coded by Chris DeLuca-->
+
+    <title>Zoovac</title>
+
+    <defs>
+        <pattern id="striping-pattern" viewBox="0 0 10 10" width="90%" height="3%">
+            <rect width="100%" height="100%" fill="lightgrey" />
+            <path d="M 0 0 C 2 4, 7 8, 10 10" stroke="black" />
+        </pattern>
+        <pattern id="hair-pattern" viewBox="0 0 10 10" width="10%" height="11%">
+            <rect width="100%" height="100%" fill="lime" />
+            <polyline stroke="limegreen" fill="none" points="10,10 1,5 10,0"/>
+        </pattern>
+        <ellipse
+            id="eye"
+            rx="6"
+            ry="8"
+            stroke="black"
+            fill="white"
+        />
+        <circle id="pupil" r="2" />
+        <line
+            id="eyebrow"
+            x1="0"
+            x2="15"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+        />
+    </defs>
+
+    <rect width="100%" height="100%" fill="aqua" />
+
+    <g id="tripod">
+        <polygon
+            id="tripod-rear"
+            points="148,370 152,370 155,445 147,445 148,370"
+            stroke="black"
+            fill="grey"
+        />
+        <polygon
+            id="tripod-left"
+            points="140,370 145,370 135,450 120,455 140,370"
+            stroke="black"
+            fill="lightgrey"
+        />
+        <polygon
+            id="tripod-right"
+            points="155,370 160,370 180,455 165,450 155,370"
+            stroke="black"
+            fill="lightgrey"
+        />
+        <ellipse
+            id="tripod-top"
+            rx="15"
+            ry="8"
+            cx="150"
+            cy="370"
+            fill="#aaa"
+            stroke="black"
+        />
+    </g>
+
+    <rect
+        id="body"
+        width="10"
+        height="250"
+        x="145"
+        y="120"
+        rx="4"
+        fill="url(#striping-pattern)"
+        stroke="black"
+    />
+
+    <g id="hair">
+        <polygon
+            id="hair-left"
+            points="110,110 120,80 0,0 15,15 5,10 18,25 2,15 10,30 5,28 10,35 0,28 15,45 1,35 11,53 3,47 11,60 11,60"
+            fill="url(#hair-pattern)"
+            stroke="black"
+        />
+        <polygon
+            id="hair-right"
+            points="190,110 180,80 300,0 290,15 298,15 288,25 300,20 291,31 296,30 285,40 300,35 292,45 297,44 285,55 298,50 290,60 300,60"
+            fill="url(#hair-pattern)"
+            stroke="black"
+        />
+    </g>
+
+    <ellipse
+        id="head"
+        cx="150"
+        cy="100"
+        rx="50"
+        ry="25"
+        stroke="black"
+        fill="white"
+    />
+
+    <g id="eyes">
+        <use class="eye" href="#eye" x="135" y="90" />
+        <use class="pupil" href="#pupil" x="135" y="90" />
+        <use class="eyebrow" href="#eyebrow" x="127" y="85" />
+        <use class="eye" href="#eye" x="165" y="90" />
+        <use class="pupil" href="#pupil" x="165" y="90" />
+        <use class="eyebrow" href="#eyebrow" x="157" y="85" y2="80" />
+    </g>
+
+    <path id="mouth" d="M140 115 H160" stroke="black" />
+
+    <!--xs-->
+</svg>
