@@ -11,7 +11,6 @@ find ./src/_svgs -type f -name "*.svg" | while read -r svg; do
   svgname="$(basename "$svg" | cut -d . -f 1)"
   tr -d "\n\t\r" < "$svg" > "$svgtmpdir/$svgname.svg"
   contents="$(cat "$svgtmpdir/$svgname.svg")"
-  echo "$contents"
   find ./src/ -type f -name "*.html" | while read -r file; do
     htmlname="$(basename "$file" | cut -d . -f 1)"
     sed -i.bak "s;{{ $svgname }};$contents;g" "./public/$htmlname.html"
