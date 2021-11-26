@@ -25,9 +25,11 @@
     }
   }
 
+  // Grab a reference to the two fighter's DOM elements for future use.
   const p1 = document.getElementById('p1');
   const p2 = document.getElementById('p2');
 
+  // Setup for attribute changes. Primitive to trigger graphic state changes.
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'attributes') {
@@ -36,9 +38,11 @@
     });
   });
 
+  // Listen for DOM mutations on the two fighters.
   observer.observe(p1, {attributes: true});
   observer.observe(p2, {attributes: true});
 
+  // Show the default graphic state on initial load.
   showFrame(p1, p1.dataset.frameVisible);
   showFrame(p2, p2.dataset.frameVisible);
 
