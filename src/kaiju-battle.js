@@ -25,11 +25,21 @@
     }
   }
 
-  const params = new URLSearchParams(window.location.search);
   const p1 = document.getElementById('p1');
   const p2 = document.getElementById('p2');
 
-  showFrame(p1, params.has('p1') ? params.get('p1') : p1.dataset.frameDefault);
-  showFrame(p2, params.has('p2') ? params.get('p2') : p2.dataset.frameDefault);
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes') {
+        showFrame(mutation.target, mutation.target.dataset.frameVisible)
+      }
+    });
+  });
+
+  observer.observe(p1, {attributes: true});
+  observer.observe(p2, {attributes: true});
+
+  showFrame(p1, p1.dataset.frameVisible);
+  showFrame(p2, p2.dataset.frameVisible);
 
 })();

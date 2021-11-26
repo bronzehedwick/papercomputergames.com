@@ -1,0 +1,4 @@
+- [ ] Draw wind up graphics
+- [ ] Add start button
+- [ ] Add different animations for each state
+- [ ] Listen for input to change states

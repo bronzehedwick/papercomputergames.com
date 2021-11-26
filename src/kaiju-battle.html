@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaiju Battle | PCG Anniversery Special II</title>
+    <link rel="stylesheet" href="./kaiju-battle.css"/>
   </head>
   <body>
-    <div id="p1" class="character" data-frame-default="happy">
-      <div id="p1-happy" class="character-frame" hidden>
-        {{ circle-happy }}
+    <div id="stage">
+      <div id="p1" class="character" data-frame-visible="standard">
+        <div id="p1-standard" class="character-frame" hidden>
+          {{ mm-standard }}
+        </div>
+        <div id="p1-punch" class="character-frame" hidden>
+          {{ mm-punch }}
+        </div>
+        <div id="p1-hit" class="character-frame" hidden>
+          {{ mm-hit }}
+        </div>
       </div>
-      <div id="p1-shock" class="character-frame" hidden>
-        {{ circle-shock }}
-      </div>
-      <div id="p1-hurt" class="character-frame" hidden>
-        {{ circle-hurt }}
-      </div>
-    </div>
-    <div id="p2" class="character" data-frame-default="happy">
-      <div id="p2-happy" class="character-frame" hidden>
-        {{ square-happy }}
-      </div>
-      <div id="p2-shock" class="character-frame" hidden>
-        {{ square-shock }}
-      </div>
-      <div id="p2-hurt" class="character-frame" hidden>
-        {{ square-hurt }}
+      <div id="p2" class="character" data-frame-visible="standard">
+        <div id="p2-standard" class="character-frame" hidden>
+          {{ nm-standard }}
+        </div>
+        <div id="p2-punch" class="character-frame" hidden>
+          {{ nm-punch }}
+        </div>
+        <div id="p2-hit" class="character-frame" hidden>
+          {{ nm-hit }}
+        </div>
       </div>
     </div>
     <script src="./kaiju-battle.js"></script>

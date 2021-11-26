@@ -1,0 +1,44 @@
+#stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  border: 1ch solid bisque;
+}
+
+.character {
+  animation: 250ms linear 0s infinite alternate bounce_fighter;
+}
+
+.character svg {
+  height: 500px;
+}
+
+#p1 {
+  /* left: 0; */
+}
+
+#p2 {
+  /* right: 0; */
+  animation: 250ms linear 0s infinite alternate bounce_fighter_alt;
+}
+
+@keyframes bounce_fighter {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce_fighter_alt {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
