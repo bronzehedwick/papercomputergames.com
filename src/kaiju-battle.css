@@ -29,6 +29,8 @@ button {
 
 #stage {
   background-color: white;
+  background-image: url(/mountain-bg.png);
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
