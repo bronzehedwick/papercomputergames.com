@@ -1,4 +1,16 @@
-- [ ] Draw wind up graphics
-- [ ] Add start button
-- [ ] Add different animations for each state
-- [ ] Listen for input to change states
+- [X] Draw wind up graphics
+- [X] Add start button
+- [X] Add different animations for each state
+- [X] Listen for input to change states
+- [X] Add sound effects and bg music
+- [ ] Wait a second or two before the enemy AI kicks in
+- [X] Add a button start sound effect
+- [X] Display health bars
+- [X] Show punch animation/sfx when vulnerable
+- [X] Add vulnerable state
+- [ ] Start screen music
+- [ ] Background graphics
+- [ ] Background animations
+- [ ] Win state
+- [ ] Cancel other player's attack if a hit lands
+- [ ] Game balance

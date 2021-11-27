@@ -7,8 +7,27 @@
     <link rel="stylesheet" href="./kaiju-battle.css"/>
   </head>
   <body>
-    <div id="stage">
-      <div id="p1" class="character" data-frame-visible="standard">
+    <h1>The Giant Purple Mountain Man<br> <em>vs</em><br> The Artist Formerally Known As The Nazi Machine</h1>
+    <button id="start">Start</button>
+    <div id="healthbars">
+      <div>
+        <label for="p1-health">Enemy health</label>&nbsp;
+        <meter id="p1-health" min="0" max="3" low="1.5" high="2.5" optimum="2.9" value="3">Health</meter>
+      </div>
+      <div>
+        <label for="p2-health">Player health</label>&nbsp;
+        <meter id="p2-health" min="0" max="3" low="1.5" high="2.5" optimum="2.9" value="3">Health</meter>
+      </div>
+    </div>
+    <div id="lose-message" hidden>
+      <p>As expected, <span>X</span>aq <span>S</span>ucks.</p>
+      <button id="restart">Try Again</button>
+    </div>
+    <div id="win-message" hidden>
+      <p>Xaq is Victorious!</p>
+    </div>
+    <div id="stage" class="game-not-started">
+      <div id="p1" class="p1 character" data-frame-visible="standard">
         <div id="p1-standard" class="character-frame" hidden>
           {{ mm-standard }}
         </div>
@@ -18,8 +37,11 @@
         <div id="p1-hit" class="character-frame" hidden>
           {{ mm-hit }}
         </div>
+        <div id="p1-wind-up" class="character-frame" hidden>
+          {{ mm-wind-up }}
+        </div>
       </div>
-      <div id="p2" class="character" data-frame-visible="standard">
+      <div id="p2" class="p2 character" data-frame-visible="standard">
         <div id="p2-standard" class="character-frame" hidden>
           {{ nm-standard }}
         </div>
@@ -29,8 +51,24 @@
         <div id="p2-hit" class="character-frame" hidden>
           {{ nm-hit }}
         </div>
+        <div id="p2-wind-up" class="character-frame" hidden>
+          {{ nm-wind-up }}
+        </div>
       </div>
     </div>
+    <p>(Hint: use the left mouse button)</p>
+    <audio id="background-music" preload loop>
+      <source src="/punching-nazis.mp3">
+    </audio>
+    <audio id="block-sfx" preload>
+      <source src="/block.mp3">
+    </audio>
+    <audio id="punch-sfx" preload>
+      <source src="/punch.mp3">
+    </audio>
+    <audio id="beep-sfx" preload>
+      <source src="/beep.mp3">
+    </audio>
     <script src="./kaiju-battle.js"></script>
   </body>
 </html>
