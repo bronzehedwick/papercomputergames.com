@@ -171,12 +171,6 @@
   let windUpTimeoutId;
 
   function setupGameEvents() {
-    // Setup game conditions.
-    enemyAttackChance = 1;
-    enemyAttacking = false;
-    p1Vulnerable = false;
-    p2Vulnerable = false;
-
     document.getElementById('stage').classList.remove('game-not-started');
     // Listener to wind up a punch.
     document.addEventListener('mousedown', (event) => {
@@ -214,10 +208,10 @@
 
   // Setup starting the game via button.
   document.getElementById('start').addEventListener('pointerup', (event) => {
-    beepSfx.play();
-    backgroundMusic.play();
     event.target.hidden = true;
-    setupGameEvents();
+    beepSfx.play()
+      .then(() => backgroundMusic.play())
+      .then(setupGameEvents);
   });
 
 })();

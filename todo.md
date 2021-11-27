@@ -11,6 +11,9 @@
 - [ ] Start screen music
 - [ ] Background graphics
 - [ ] Background animations
-- [ ] Win state
+- [X] Win state
 - [ ] Cancel other player's attack if a hit lands
 - [ ] Game balance
+- [ ] Game over music
+- [ ] Win game music
+- [ ] Stop stuff when game ends
