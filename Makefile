@@ -1,5 +1,5 @@
 SRC := ./src
-BUILD := ./public
+BUILD := ./docs
 
 default: build templates
 
@@ -10,10 +10,10 @@ build: ## Copy source files to build directory.
 	@rsync --archive --delete --exclude="_svgs" ${SRC}/ ${BUILD}/
 
 clean: ## Remove build directory.
-	@if [ -d public ]; then rm -rf ${BUILD}; fi && mkdir ${BUILD}
+	@if [ -d ${BUILD} ]; then rm -rf ${BUILD}; fi && mkdir ${BUILD}
 
 web: ## Push the site to the server.
-	@rsync --recursive --delete --rsh=ssh --exclude=".*" --quiet public/ waitstaff_deploy:/usr/local/www/papercomputergames.com
+	@rsync --recursive --delete --rsh=ssh --exclude=".*" --quiet ${BUILD}/ waitstaff_deploy:/usr/local/www/papercomputergames.com
 
 serve: ## Start simple python webserver in the background.
 	@cd public && python -m SimpleHTTPServer > /dev/null 2>&1 &

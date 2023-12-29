@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Press Start Regular';
+  src: url('pressstart2p-regular-webfont.woff2') format('woff2'),
+    url('pressstart2p-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(2, 28, 117);
+  background: linear-gradient(to bottom, rgb(255,255,255) 0%,rgb(2,28,117) 100%);
+}
+
+header {
+  padding-left: 1em;
+}
+
+body {
+  margin: 0;
+  font-family: 'Press Start Regular', Monaco, monospace;
+}
+
+nav {
+  overflow-x: auto;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  padding-left: 0;
+  margin-top: 2em;
+}
+
+li + li {
+  margin-left: 1em;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(104, 0, 255, 0.7);
+  border-radius: 3px;
+  border: 2px solid;
+  padding: 1ch;
+}
+
+li a:hover {
+  background-color: rgba(104, 0, 255, 1);
+}
