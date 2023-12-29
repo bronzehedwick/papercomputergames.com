@@ -13,8 +13,8 @@ find ./src/_svgs -type f -name "*.svg" | while read -r svg; do
   contents="$(cat "$svgtmpdir/$svgname.svg")"
   find ./src/ -type f -name "*.html" | while read -r file; do
     htmlname="$(basename "$file" | cut -d . -f 1)"
-    sed -i.bak "s;{{ $svgname }};$contents;g" "./public/$htmlname.html"
-    if [ -f "./public/$htmlname.html.bak" ]; then rm "public/$htmlname.html.bak"; fi
+    sed -i.bak "s;{{ $svgname }};$contents;g" "./docs/$htmlname.html"
+    if [ -f "./docs/$htmlname.html.bak" ]; then rm "docs/$htmlname.html.bak"; fi
   done
 done
 

@@ -16,7 +16,7 @@ web: ## Push the site to the server.
 	@rsync --recursive --delete --rsh=ssh --exclude=".*" --quiet ${BUILD}/ waitstaff_deploy:/usr/local/www/papercomputergames.com
 
 serve: ## Start simple python webserver in the background.
-	@cd public && python -m SimpleHTTPServer > /dev/null 2>&1 &
+	@cd ${BUILD} && python -m SimpleHTTPServer > /dev/null 2>&1 &
 
 stop: ## Stop running python webserver.
 	@pgrep python -m SimpleHTTPServer | xargs kill
