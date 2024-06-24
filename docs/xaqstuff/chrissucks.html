@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paper Computer Games</title>
+    <title>Animated Image</title>
     <style>
         body {
             background-color: grey;
@@ -18,10 +18,31 @@
         p {
             font-size: 1.5em;
         }
+        .animated-image {
+            width: 200px;
+            animation: rotate 5s linear infinite, bounce 2s ease-in-out infinite;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Paper Computer Games</h1>
     <p>CHRIS SUCKS</p>
+    <img src="Xaqstuff/your-image-file.jpg" alt="Animated" class="animated-image">
 </body>
 </html>
