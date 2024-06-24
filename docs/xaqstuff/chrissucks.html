@@ -42,12 +42,42 @@
                 transform: translateY(-20px);
             }
         }
+                .left-text, .right-text {
+            position: absolute;
+            top: 50%;
+            font-size: 2em;
+            animation: grow-shrink 2s infinite alternate, color-change 2s infinite alternate;
+        }
+        .left-text {
+            left: 10px;
+        }
+        .right-text {
+            right: 10px;
+        }
+        @keyframes grow-shrink {
+            0% {
+                font-size: 2em;
+            }
+            100% {
+                font-size: 3em;
+            }
+        }
+        @keyframes color-change {
+            0% {
+                color: red;
+            }
+            100% {
+                color: green;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Paper Computer Games</h1>
     <p>CHRIS SUCKS</p>
     <img src="https://papercomputergames.com/xaqstuff/ChrisTransparent.png" alt="Animated" class="animated-image">
+    <div class="left-text">QRITICIZE CHRIS</div>
+    <div class="right-text">QRITICIZE CHRIS</div>
     <p>"I Suck! -Chris"</p>
     <p><a href="https://papercomputergames.com" style="color: blue; text-decoration: none;">(Back To Home)</a></p>
 </body>
