@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Display Files</title>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      function authenticate() {
+        return gapi.auth2.getAuthInstance()
+            .signIn({scope: 'https://www.googleapis.com/auth/drive.file'})
+            .then(() => { console.log("Sign-in successful"); },
+                  err => { console.error("Error signing in", err); });
+      }
+
+      function loadClient() {
+        gapi.client.setApiKey("AIzaSyAxwb-Aausj1jd-apquTcAz2k_bC3lN8pI"); // Replace with your actual API key
+        return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/drive/v3/rest")
+            .then(() => { console.log("GAPI client loaded for API"); },
+                  err => { console.error("Error loading GAPI client for API", err); });
+      }
+
+      function uploadFile() {
+        const file = document.getElementById("fileInput").files[0];
+        const metadata = {
+          name: file.name,
+          parents: ["1DeHqM1ue9N1F42NPLtZPAr97Ut0tUR24"] // Replace with your actual folder ID
+        };
+        const form = new FormData();
+        form.append("metadata", new Blob([JSON.stringify(metadata)], {type: "application/json"}));
+        form.append("file", file);
+
+        fetch("https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart", {
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer " + gapi.auth.getToken().access_token
+          },
+          body: form
+        }).then(response => response.json())
+          .then(data => console.log(data));
+      }
+
+      function listFiles() {
+        gapi.client.drive.files.list({
+          'pageSize': 10,
+          'fields': "nextPageToken, files(id, name, webViewLink)",
+          'q': "'1DeHqM1ue9N1F42NPLtZPAr97Ut0tUR24' in parents" // Replace with your actual folder ID
+        }).then(response => {
+          const files = response.result.files;
+          const fileList = document.getElementById('fileList');
+          fileList.innerHTML = '';
+          if (files && files.length > 0) {
+            files.forEach(file => {
+              const link = document.createElement('a');
+              link.href = file.webViewLink;
+              link.textContent = file.name;
+              fileList.appendChild(link);
+              fileList.appendChild(document.createElement('br'));
+            });
+          } else {
+            console.log("No files found.");
+          }
+        });
+      }
+
+      gapi.load("client:auth2", () => {
+        gapi.auth2.init({client_id: "412898603286-b8rmr775pvog76jvsp3aj1oc0vs2oe8t.apps.googleusercontent.com"}).then(() => { // Replace with your actual client ID
+          listFiles();
+        });
+      });
+    </script>
+</head>
+<body>
+    <h1>Upload and Display Files</h1>
+    <form id="uploadForm" onsubmit="event.preventDefault(); authenticate().then(loadClient).then(uploadFile);">
+      <input type="file" id="fileInput">
+      <button type="submit">Upload</button>
+    </form>
+    <div id="fileList"></div>
+</body>
+</html>
